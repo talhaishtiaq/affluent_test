@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
+<script>
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText).data;
+      data.users.forEach(function( user){
+        let tr = document.createElement("tr");
+        Object.keys(user).forEach(function (key) {
+          if(key != 'id'){
+            let td = document.createElement("td");
+            td.innerHTML = user[key];
+            tr.appendChild(td);
+            document.getElementById("users").childNodes[3].appendChild(tr);
+          }
+        });
+      });
+      $('#users').DataTable();
+      data.dates.forEach(function(date){
+        let tr = document.createElement("tr");
+        Object.keys(date).forEach(function (key) {
+          if(key != 'id'){
+            let td = document.createElement("td");
+            if(key == 'Date'){
+              //console.log(typeof(date[key]));
+              td.innerHTML = date[key].split('T')[0];
+
+            }else if(key == 'CommissionTotal'){
+              td.innerHTML = "$"+date[key];
+            }else if(key == 'EPC'){
+              td.innerHTML = "$"+date[key];
+            }else if(key == 'CR') {
+              td.innerHTML = date[key]+"%";
+            }else{
+              td.innerHTML = date[key];
+            }
+            tr.appendChild(td);
+            document.getElementById("dates").childNodes[3].appendChild(tr);
+          }
+        });
+      });
+      $('#dates').DataTable();
+      console.log(data);
+     //document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:8080/api/v1/get_data", true);
+  xhttp.send();
+
+//   $(document).ready(function() {
+//     // $('#users').DataTable();
+//     $('#dates').DataTable();
+// });
+</script>
+</head>
+<body>
+  <div id="demo">
+
+  </div>
+  <div>
+    <table id="users" class="cell-border" style="width:100%">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Avatar</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+  </div>
+
+  <div>
+    <table id="dates" class="cell-border" style="width:100%">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Commission - Total</th>
+          <th>Sales - Net</th>
+          <th>Leads - Net</th>
+          <th>Clicks</th>
+          <th>EPC</th>
+          <th>Impressions</th>
+          <th>CR</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+  </div>
+</body>
+</html>

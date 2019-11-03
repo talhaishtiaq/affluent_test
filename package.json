@@ -1,0 +1,23 @@
+{
+  "name": "affluent_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db_con.js",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talhaishtiaq/affluent_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talhaishtiaq/affluent_test/issues"
+  },
+  "homepage": "https://github.com/talhaishtiaq/affluent_test#readme"
+}
