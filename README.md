@@ -1,6 +1,6 @@
 # affluent_test
-##Instalation
+## Instalation
 run npm install from / , /getdata and show_data
-'''
+```
 npm install
-'''
+```
