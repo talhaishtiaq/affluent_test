@@ -5,7 +5,7 @@ run npm install from  ```/```  ,  ```/get_and_insert_data/```  and  ```/show_dat
 ```
 npm install
 ```
-##Getiing and inserting data
+## Getiing and inserting data
 
 from  /get_and_insert_data/ run:
 ```
@@ -13,10 +13,10 @@ node users.js
 node dates.js
 ```
 
-##Database
+## Database
 Database is configured in ```/db_con.js```
 
-##Showing data
+## Showing data
 From ```/show_data/``` run:
 ```
 node app.js
