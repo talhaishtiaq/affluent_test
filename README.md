@@ -7,11 +7,12 @@ npm install
 ```
 ## Getiing and inserting data
 
-from  /get_and_insert_data/ run:
+from  ```/get_and_insert_data/``` run:
 ```
 node users.js
 node dates.js
 ```
+It will fetch the data from users api and affluent datatable using puppeteer.
 
 ## Database
 Database is configured in ```/db_con.js```
